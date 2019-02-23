@@ -98,6 +98,27 @@ public class Dashboard extends AppCompatActivity
         TextView ewallet1 = (TextView) findViewById(R.id.ewallet);
         ewallet1.setOnClickListener(ewallet);
 
+        View.OnClickListener report1 = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Dashboard.this, Report.class));
+            }
+        };
+
+        TextView report = (TextView) findViewById(R.id.report);
+        report.setOnClickListener(report1);
+
+        View.OnClickListener logout = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Dashboard.this, MainActivity.class));
+            }
+        };
+
+        TextView logout1 = (TextView) findViewById(R.id.logout);
+        logout1.setOnClickListener(logout);
+
+
         final myDbAdapter helper = new myDbAdapter(this);
         String MyPREFERENCES = "MyPrefs" ;
         final SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
