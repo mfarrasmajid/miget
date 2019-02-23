@@ -9,10 +9,13 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".Ewallet" />
+        <activity android:name=".Transfer" />
         <activity
             android:name=".Dashboard"
             android:label="@string/title_activity_dashboard"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Bayar" />
         <activity
             android:name=".SplashScreen"
