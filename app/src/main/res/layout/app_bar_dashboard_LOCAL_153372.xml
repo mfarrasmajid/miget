@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-<<<<<<< HEAD
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
             <ImageView
@@ -37,9 +36,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </android.support.v7.widget.Toolbar>
-=======
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
->>>>>>> dabf8bd73c1b5bf95dcb24edb62542b00005a65f
 
     </android.support.design.widget.AppBarLayout>
 
