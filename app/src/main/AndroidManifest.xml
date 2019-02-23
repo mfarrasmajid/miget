@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".AlokasiDana"></activity>
+        <activity android:name=".ForgotPassword" />
         <activity android:name=".Ewallet" />
         <activity android:name=".Transfer" />
         <activity
@@ -32,11 +33,10 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".SignUp"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".SignUp"
@@ -44,4 +44,4 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
-	</manifest>
+</manifest>

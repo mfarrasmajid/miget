@@ -1,5 +1,6 @@
 package com.example.miget;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -54,6 +56,44 @@ public class Dashboard extends AppCompatActivity
             }
         });
 
+        TextView alokasi = (TextView) headerview.findViewById(R.id.dana);
+        alokasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Dashboard.this, AlokasiDana.class));
+            }
+        });
+
+        View.OnClickListener bayar = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Dashboard.this, Bayar.class));
+            }
+        };
+
+        TextView bayar1 = (TextView) findViewById(R.id.bayar);
+        bayar1.setOnClickListener(bayar);
+
+        View.OnClickListener transfer = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Dashboard.this, Transfer.class));
+            }
+        };
+
+        TextView transfer1 = (TextView) findViewById(R.id.transfer);
+        transfer1.setOnClickListener(transfer);
+
+        View.OnClickListener ewallet = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Dashboard.this, Ewallet.class));
+            }
+        };
+
+        TextView ewallet1 = (TextView) findViewById(R.id.ewallet);
+        ewallet1.setOnClickListener(ewallet);
+
     }
 
     @Override
@@ -66,7 +106,7 @@ public class Dashboard extends AppCompatActivity
         }
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.dashboard, menu);
@@ -86,7 +126,7 @@ public class Dashboard extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
