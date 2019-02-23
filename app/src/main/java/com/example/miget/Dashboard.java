@@ -68,6 +68,14 @@ public class Dashboard extends AppCompatActivity
             }
         });
 
+        TextView help = (TextView) headerview.findViewById(R.id.help);
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Dashboard.this, AboutUs.class));
+            }
+        });
+
         TextView logout = (TextView) headerview.findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
