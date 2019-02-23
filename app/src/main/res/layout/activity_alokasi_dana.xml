@@ -52,6 +52,22 @@
                     android:text="Alokasi Dana"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/toolbar_jenius"
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="30dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/jenius_logowhite"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/jenius_logowhite" />
+
             </LinearLayout>
 
         </android.support.v7.widget.Toolbar>
