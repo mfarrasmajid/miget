@@ -46,6 +46,26 @@ public class MainActivity extends AppCompatActivity {
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         textView.setHighlightColor(Color.TRANSPARENT);
 
+        // FORGOT
+        SpannableString ss1 = new SpannableString("Forgot Password");
+        ClickableSpan clickableSpan1 = new ClickableSpan() {
+            @Override
+            public void onClick(View textView) {
+                startActivity(new Intent(MainActivity.this, ForgotPassword.class));
+            }
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
+            }
+        };
+        ss1.setSpan(clickableSpan1, 00, 15, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        TextView textView1 = (TextView) findViewById(R.id.forgot);
+        textView1.setText(ss1);
+        textView1.setMovementMethod(LinkMovementMethod.getInstance());
+        textView1.setHighlightColor(Color.TRANSPARENT);
+
         // SHOW PASSWORD
         CheckBox checkbox = (CheckBox) findViewById(R.id.showpassword);
         final EditText edtPassword = (EditText) findViewById(R.id.password);
@@ -104,5 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
         TextView signin1 = (TextView) findViewById(R.id.signin);
         signin1.setOnClickListener(signin);
+
     }
 }
