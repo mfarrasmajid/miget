@@ -48,7 +48,9 @@ public class AlokasiDana extends AppCompatActivity {
                     Message.message(getApplicationContext(),"Fields Must Not Empty");
                 } else {
                     long ret=helper.insertTabungan(username,stottabungan,sbulanan,sinvestasi);
-                    startActivity(new Intent(AlokasiDana.this, Dashboard.class));
+                    Bundle bundle = new Bundle();
+                    bundle.putString("message", "Dana Teralokasikan!");
+                    startActivity(new Intent(AlokasiDana.this, Dashboard.class).putExtras(bundle));
                 }
             }
         };

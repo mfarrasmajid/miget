@@ -120,6 +120,11 @@ public class Dashboard extends AppCompatActivity
         TextView string3= (TextView)findViewById(R.id.num3);
         string3.setText(num3);
 
+        String message = this.getIntent().getExtras().getString("message");
+        if (!message.equals("")){
+            Message.message(getApplicationContext(),message);
+        }
+
     }
 
     @Override

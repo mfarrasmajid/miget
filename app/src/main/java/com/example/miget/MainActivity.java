@@ -47,24 +47,15 @@ public class MainActivity extends AppCompatActivity {
         textView.setHighlightColor(Color.TRANSPARENT);
 
         // FORGOT
-        SpannableString ss1 = new SpannableString("Forgot Password");
-        ClickableSpan clickableSpan1 = new ClickableSpan() {
+        View.OnClickListener forgotPassword = new View.OnClickListener() {
             @Override
-            public void onClick(View textView) {
+            public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ForgotPassword.class));
             }
-            @Override
-            public void updateDrawState(TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setUnderlineText(false);
-            }
         };
-        ss1.setSpan(clickableSpan1, 00, 15, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        TextView textView1 = (TextView) findViewById(R.id.forgot);
-        textView1.setText(ss1);
-        textView1.setMovementMethod(LinkMovementMethod.getInstance());
-        textView1.setHighlightColor(Color.TRANSPARENT);
+        TextView forgot = (TextView) findViewById(R.id.forgot);
+        forgot.setOnClickListener(forgotPassword);
 
         // SHOW PASSWORD
         CheckBox checkbox = (CheckBox) findViewById(R.id.showpassword);
@@ -112,8 +103,9 @@ public class MainActivity extends AppCompatActivity {
                         editor.putString("Email", ret[3]);
                         editor.commit();
                         //Message.message(getApplicationContext(),ret[0]);
-                        startActivity(new Intent(MainActivity.this, Dashboard.class));
-
+                        Bundle bundle = new Bundle();
+                        bundle.putString("message", "");
+                        startActivity(new Intent(MainActivity.this, Dashboard.class).putExtras(bundle));
                     }
                     else{
                         Message.message(getApplicationContext(),ret[0]);

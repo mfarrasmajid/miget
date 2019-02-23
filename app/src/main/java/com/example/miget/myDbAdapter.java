@@ -95,24 +95,76 @@ public class myDbAdapter {
             ret[0] = "Username not found";
         }
         return ret;
+    }
 
-        /*SQLiteDatabase db=myhelper.getReadableDatabase();
-        String[] columns = {myDbHelper.UID,myDbHelper.NAME,myDbHelper.MyPASSWORD};
-        Cursor cursor =db.query(myDbHelper.TABLE_NAME,columns,null,null,null,null,null);
-        String a, b;
-        b = "not found";
+    public int checkNominal(String username, String alokasi, String nominal)
+    {
+        SQLiteDatabase db = myhelper.getReadableDatabase();
+        String[] columns = {myDbHelper.UID2,myDbHelper.USER,myDbHelper.TOTAL,myDbHelper.BULANAN,myDbHelper.INVEST};
+        String[] values = {username};
+        Cursor cursor =db.query(myDbHelper.TABLE_NAME2,columns,myDbHelper.USER + " = ?",values,null,null,null);
+        int ret = 0;
         if (cursor.moveToNext()) {
-            do {
-                a = cursor.getString(1);
-
-                if (a.equals(username)) {
-                    b = cursor.getString(2);
-                    break;
+            long bulanan = Long.parseLong(cursor.getString(cursor.getColumnIndex(myDbHelper.BULANAN)));
+            long invest = Long.parseLong(cursor.getString(cursor.getColumnIndex(myDbHelper.INVEST)));
+            Long lnominal = Long.parseLong(nominal);
+            String sbulanan = "Monthly";
+            String sinvestasi = "Investasi";
+            if (alokasi.equals(sbulanan)){
+                if (bulanan >= lnominal)
+                {
+                    ret = 1;
+                } else {
+                    ret = 0;
                 }
-            } while (cursor.moveToNext());
-
+            } else {
+                if (invest >= lnominal)
+                {
+                    ret = 1;
+                } else {
+                    ret = 0;
+                }
+            }
+        } else {
+            ret = 0;
         }
-        return b;*/
+        return ret;
+    }
+
+    public int transferNominal(String username, String alokasi, String nominal)
+    {
+        SQLiteDatabase db = myhelper.getWritableDatabase();
+        String[] columns = {myDbHelper.UID2,myDbHelper.USER,myDbHelper.TOTAL,myDbHelper.BULANAN,myDbHelper.INVEST};
+        String[] values = {username};
+        Cursor cursor =db.query(myDbHelper.TABLE_NAME2,columns,myDbHelper.USER + " = ?",values,null,null,null);
+        int ret = 0;
+        long new_total, new_bulanan, new_invest;
+        if (cursor.moveToNext()) {
+            long total = Long.parseLong(cursor.getString(cursor.getColumnIndex(myDbHelper.TOTAL)));
+            long bulanan = Long.parseLong(cursor.getString(cursor.getColumnIndex(myDbHelper.BULANAN)));
+            long invest = Long.parseLong(cursor.getString(cursor.getColumnIndex(myDbHelper.INVEST)));
+            Long lnominal = Long.parseLong(nominal);
+            String sbulanan = "Monthly";
+            String sinvestasi = "Investasi";
+            if (alokasi.equals(sbulanan)){
+                new_total = total - lnominal;
+                new_bulanan = bulanan - lnominal;
+                new_invest = invest;
+            } else {
+                new_total = total - lnominal;
+                new_bulanan = bulanan;
+                new_invest = invest - lnominal;
+            }
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(myDbHelper.TOTAL, new_total);
+            contentValues.put(myDbHelper.BULANAN, new_bulanan);
+            contentValues.put(myDbHelper.INVEST, new_invest);
+            long id = db.update(myDbHelper.TABLE_NAME2, contentValues, myDbHelper.USER +"= ?", values);
+            ret = 1;
+        } else {
+            ret = 0;
+        }
+        return ret;
     }
 
     public long[] getDashboard (String username)
