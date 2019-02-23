@@ -32,6 +32,30 @@ public class myDbAdapter {
         return id;
     }
 
+    public long insertTabungan(String username,String tot, String bulanan, String investasi)
+    {
+        SQLiteDatabase dbb = myhelper.getWritableDatabase();
+        String[] columns = {myDbHelper.UID2,myDbHelper.USER,myDbHelper.TOTAL,myDbHelper.BULANAN,myDbHelper.INVEST};
+        String[] values = {username};
+        Cursor cursor =dbb.query(myDbHelper.TABLE_NAME2,columns,myDbHelper.USER + " = ?",values,null,null,null);
+        long id;
+        if (cursor.moveToNext()) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(myDbHelper.TOTAL, tot);
+            contentValues.put(myDbHelper.BULANAN, bulanan);
+            contentValues.put(myDbHelper.INVEST, investasi);
+            id = dbb.update(myDbHelper.TABLE_NAME2, contentValues, myDbHelper.USER +"= ?", values);
+        } else {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(myDbHelper.USER, username);
+            contentValues.put(myDbHelper.TOTAL, tot);
+            contentValues.put(myDbHelper.BULANAN, bulanan);
+            contentValues.put(myDbHelper.INVEST, investasi);
+            id = dbb.insert(myDbHelper.TABLE_NAME2, null , contentValues);
+        }
+        return id;
+    }
+
     /*public String getData()
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
@@ -71,6 +95,7 @@ public class myDbAdapter {
             ret[0] = "Username not found";
         }
         return ret;
+
         /*SQLiteDatabase db=myhelper.getReadableDatabase();
         String[] columns = {myDbHelper.UID,myDbHelper.NAME,myDbHelper.MyPASSWORD};
         Cursor cursor =db.query(myDbHelper.TABLE_NAME,columns,null,null,null,null,null);
@@ -88,6 +113,28 @@ public class myDbAdapter {
 
         }
         return b;*/
+    }
+
+    public long[] getDashboard (String username)
+    {
+        SQLiteDatabase db = myhelper.getReadableDatabase();
+        String[] columns = {myDbHelper.UID2,myDbHelper.USER,myDbHelper.TOTAL,myDbHelper.BULANAN,myDbHelper.INVEST};
+        String[] values = {username};
+        Cursor cursor =db.query(myDbHelper.TABLE_NAME2,columns,myDbHelper.USER + " = ?",values,null,null,null);
+        //String pass, email;
+        long[] ret = new long[4];
+        if (cursor.moveToNext()) {
+            ret[0] = cursor.getInt(cursor.getColumnIndex(myDbHelper.TOTAL));
+            ret[1] = cursor.getInt(cursor.getColumnIndex(myDbHelper.BULANAN));
+            ret[2] = cursor.getInt(cursor.getColumnIndex(myDbHelper.INVEST));
+            ret[3] = ret[0] - ret[1] - ret[2];
+        } else {
+            ret[0] = 0;
+            ret[1] = 0;
+            ret[2] = 0;
+            ret[3] = 0;
+        }
+        return ret;
     }
 
     /*public  int delete(String uname)
@@ -121,6 +168,15 @@ public class myDbAdapter {
         private static final String CREATE_TABLE = "CREATE TABLE "+TABLE_NAME+
                 " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+NAME+" VARCHAR(255), "+ MyPASSWORD+" VARCHAR(225), " + EMAIL + " VARCHAR(225));";
         private static final String DROP_TABLE ="DROP TABLE IF EXISTS "+TABLE_NAME;
+        private static final String TABLE_NAME2 = "setting";   // Table Name
+        private static final String UID2 ="_id";     // Column I (Primary Key)
+        private static final String USER = "User";    //Column III
+        private static final String TOTAL = "Total";    //Column III
+        private static final String BULANAN = "Bulanan";    // Column IV
+        private static final String INVEST = "Invest";    // Column V
+        private static final String CREATE_TABLE2 = "CREATE TABLE "+TABLE_NAME2+
+                " ("+UID2+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USER+" VARCHAR(255), "+ TOTAL+" BIGINT, " + BULANAN + " BIGINT, " + INVEST + " BIGINT);";
+        private static final String DROP_TABLE2 ="DROP TABLE IF EXISTS "+TABLE_NAME2;
         private Context context;
 
         public myDbHelper(Context context) {
@@ -132,6 +188,7 @@ public class myDbAdapter {
 
             try {
                 db.execSQL(CREATE_TABLE);
+                db.execSQL(CREATE_TABLE2);
             } catch (Exception e) {
                 Message.message(context,""+e);
             }
@@ -142,6 +199,7 @@ public class myDbAdapter {
             try {
                 Message.message(context,"OnUpgrade");
                 db.execSQL(DROP_TABLE);
+                db.execSQL(DROP_TABLE2);
                 onCreate(db);
             }catch (Exception e) {
                 Message.message(context,""+e);

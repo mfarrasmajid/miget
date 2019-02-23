@@ -1,6 +1,8 @@
 package com.example.miget;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -93,6 +97,29 @@ public class Dashboard extends AppCompatActivity
 
         TextView ewallet1 = (TextView) findViewById(R.id.ewallet);
         ewallet1.setOnClickListener(ewallet);
+
+        final myDbAdapter helper = new myDbAdapter(this);
+        String MyPREFERENCES = "MyPrefs" ;
+        final SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+        String username = sharedpreferences.getString("Name", "");
+        String email = sharedpreferences.getString("Email", "");
+
+        long[] dashboard = helper.getDashboard(username);
+        long number = 1234567890;
+        DecimalFormat decimalFormat = new DecimalFormat("#.##0");
+        String tabungan = decimalFormat.format(dashboard[1]);
+        String num1 = decimalFormat.format(dashboard[1]);
+        String num2 = decimalFormat.format(dashboard[2]);
+        String num3 = decimalFormat.format(dashboard[3]);
+        TextView string0= (TextView)findViewById(R.id.tabungan);
+        string0.setText(tabungan);
+        TextView string1= (TextView)findViewById(R.id.num1);
+        string1.setText(num1);
+        TextView string2= (TextView)findViewById(R.id.num2);
+        string2.setText(num2);
+        TextView string3= (TextView)findViewById(R.id.num3);
+        string3.setText(num3);
 
     }
 
