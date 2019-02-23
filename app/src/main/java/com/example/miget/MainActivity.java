@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
                         editor.putString("Name", ret[1]);
                         editor.putString("Email", ret[3]);
                         editor.commit();
-                        Message.message(getApplicationContext(),ret[0]);
-                        //startActivity(new Intent(MainActivity.this, Dashboard_Slide.class));
+                        //Message.message(getApplicationContext(),ret[0]);
+                        startActivity(new Intent(MainActivity.this, Dashboard.class));
 
                     }
                     else{
