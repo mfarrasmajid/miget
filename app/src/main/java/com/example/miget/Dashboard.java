@@ -68,6 +68,14 @@ public class Dashboard extends AppCompatActivity
             }
         });
 
+        TextView logout = (TextView) headerview.findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Dashboard.this, MainActivity.class));
+            }
+        });
+
         View.OnClickListener bayar = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,17 +115,6 @@ public class Dashboard extends AppCompatActivity
 
         TextView report = (TextView) findViewById(R.id.report);
         report.setOnClickListener(report1);
-
-        View.OnClickListener logout = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Dashboard.this, MainActivity.class));
-            }
-        };
-
-        TextView logout1 = (TextView) findViewById(R.id.logout);
-        logout1.setOnClickListener(logout);
-
 
         final myDbAdapter helper = new myDbAdapter(this);
         String MyPREFERENCES = "MyPrefs" ;
