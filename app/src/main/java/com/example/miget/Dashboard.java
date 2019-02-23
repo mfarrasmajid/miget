@@ -107,11 +107,10 @@ public class Dashboard extends AppCompatActivity
 
         long[] dashboard = helper.getDashboard(username);
         long number = 1234567890;
-        DecimalFormat decimalFormat = new DecimalFormat("#.##0");
-        String tabungan = decimalFormat.format(dashboard[1]);
-        String num1 = decimalFormat.format(dashboard[1]);
-        String num2 = decimalFormat.format(dashboard[2]);
-        String num3 = decimalFormat.format(dashboard[3]);
+        String tabungan = String.format("%,d", dashboard[0]);
+        String num1 = String.format("%,d", dashboard[1]);
+        String num2 = String.format("%,d", dashboard[2]);
+        String num3 = String.format("%,d", dashboard[3]);
         TextView string0= (TextView)findViewById(R.id.tabungan);
         string0.setText(tabungan);
         TextView string1= (TextView)findViewById(R.id.num1);
