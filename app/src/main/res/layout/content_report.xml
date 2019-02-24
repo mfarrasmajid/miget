@@ -133,7 +133,7 @@
                         android:layout_height="60dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="6.000.000"
+                        android:text="10.000.000"
                         android:textSize="22sp" />
 
                     <TextView
@@ -172,7 +172,7 @@
                         android:layout_height="60dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="5.000.000"
+                        android:text="7.000.000"
                         android:textSize="22sp" />
 
                     <TextView
@@ -211,7 +211,7 @@
                         android:layout_height="60dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="1.000.000"
+                        android:text="3.000.000"
                         android:textSize="22sp" />
 
                     <TextView
@@ -265,7 +265,7 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="8dp"
-                    android:text="08:43"
+                    android:text="09:00"
                     android:textColor="#1d1d26"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -294,7 +294,7 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginLeft="26dp"
                     android:layout_marginTop="45dp"
-                    android:text="01/01/2019"
+                    android:text="24/02/2019"
                     android:textColor="#1d1d26"
                     android:textSize="14sp" />
 
@@ -344,7 +344,7 @@
                     android:layout_marginStart="320dp"
                     android:layout_marginLeft="320dp"
                     android:layout_marginTop="23dp"
-                    android:text="+6.000.000"
+                    android:text="+10.000.000"
                     android:textColor="#50d2c2"
                     android:textSize="15sp" />
             </RelativeLayout>
@@ -384,7 +384,7 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="8dp"
-                    android:text="08:43"
+                    android:text="09:15"
                     android:textColor="#1d1d26"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -413,7 +413,7 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginLeft="26dp"
                     android:layout_marginTop="45dp"
-                    android:text="01/01/2019"
+                    android:text="24/02/2019"
                     android:textColor="#1d1d26"
                     android:textSize="14sp" />
 
@@ -464,7 +464,7 @@
                     android:layout_marginStart="330dp"
                     android:layout_marginLeft="330dp"
                     android:layout_marginTop="23dp"
-                    android:text="1.000.000"
+                    android:text="5.000.000"
                     android:textColor="#1d1d26"
                     android:textSize="15sp" />
             </RelativeLayout>
@@ -494,7 +494,7 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="8dp"
-                    android:text="08:43"
+                    android:text="09:30"
                     android:textColor="#1d1d26"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -523,7 +523,7 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginLeft="26dp"
                     android:layout_marginTop="45dp"
-                    android:text="01/01/2019"
+                    android:text="24/02/2019"
                     android:textColor="#1d1d26"
                     android:textSize="14sp" />
 
@@ -552,7 +552,7 @@
                     android:layout_marginLeft="120dp"
                     android:layout_marginTop="45dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Bank BTPN Ke 08XXXXXXXXXX"
+                    android:text="Bank BTPN Ke ReksaDana"
                     android:textColor="#881d1d26"
                     android:textSize="12sp" />
 
@@ -574,7 +574,7 @@
                     android:layout_marginStart="330dp"
                     android:layout_marginLeft="330dp"
                     android:layout_marginTop="23dp"
-                    android:text="1.000.000"
+                    android:text="2.000.000"
                     android:textColor="#1d1d26"
                     android:textSize="15sp" />
             </RelativeLayout>
@@ -589,105 +589,7 @@
                 android:paddingLeft="20dp"
                 android:text="PENGELUARAN TABUNGAN"
                 android:textSize="14sp"/>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/jam4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="08:43"
-                    android:textColor="#1d1d26"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/ampm4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginTop="30dp"
-                    android:text="AM"
-                    android:textColor="#881d1d26"
-                    android:textSize="10sp" />
-
-                <TextView
-                    android:id="@+id/tanggal4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="26dp"
-                    android:layout_marginLeft="26dp"
-                    android:layout_marginTop="45dp"
-                    android:text="01/01/2019"
-                    android:textColor="#1d1d26"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/name4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="120dp"
-                    android:layout_marginLeft="120dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Homer Simpsons"
-                    android:textColor="#1d1d26"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/rincian4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="120dp"
-                    android:layout_marginLeft="120dp"
-                    android:layout_marginTop="45dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="Bank BTPN Ke 08XXXXXXXXXX"
-                    android:textColor="#881d1d26"
-                    android:textSize="12sp" />
-
-                <View
-                    android:id="@+id/underline4"
-                    android:layout_width="match_parent"
-                    android:layout_height="2px"
-                    android:layout_marginTop="85dp"
-                    android:background="@android:color/darker_gray"
-                    tools:layout_editor_absoluteX="4dp" />
-
-                <TextView
-                    android:id="@+id/nominal4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="330dp"
-                    android:layout_marginLeft="330dp"
-                    android:layout_marginTop="23dp"
-                    android:text="1.000.000"
-                    android:textColor="#1d1d26"
-                    android:textSize="15sp" />
-            </RelativeLayout>
         </LinearLayout>
 
 

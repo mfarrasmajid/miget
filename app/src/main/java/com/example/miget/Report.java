@@ -104,18 +104,18 @@ public class Report extends AppCompatActivity {
         spinner2 = findViewById(R.id.month);
 
         List<String> categories2 = new ArrayList<>();
-        categories2.add(0, "Januari 2019");
-        categories2.add("Februari 2019");
-        categories2.add("Maret 2019");
-        categories2.add("April 2019");
-        categories2.add("Mei 2019");
-        categories2.add("Juni 2019");
-        categories2.add("Juli 2019");
-        categories2.add("Agustus 2019");
-        categories2.add("September 2019");
-        categories2.add("Oktober 2019");
-        categories2.add("November 2019");
-        categories2.add("Desember 2019");
+        categories2.add(0, "Januari");
+        categories2.add("Februari");
+        categories2.add("Maret");
+        categories2.add("April");
+        categories2.add("Mei");
+        categories2.add("Juni");
+        categories2.add("Juli");
+        categories2.add("Agustus");
+        categories2.add("September");
+        categories2.add("Oktober");
+        categories2.add("November");
+        categories2.add("Desember");
 
 
         ArrayAdapter<String> dataAdapter2;
@@ -124,12 +124,13 @@ public class Report extends AppCompatActivity {
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner2.setAdapter(dataAdapter2);
+        spinner2.setSelection(1);
 
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                if (parent.getItemAtPosition(position).equals("Januari 2019")) {
+                if (parent.getItemAtPosition(position).equals("Februari")) {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();

@@ -9,8 +9,10 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutUs"></activity>
-        <activity android:name=".Report" />
+        <activity android:name=".AboutUs"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Report"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AlokasiDana"
             android:screenOrientation="portrait"
@@ -23,7 +25,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Transfer"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".Dashboard"
             android:label="@string/title_activity_dashboard"
